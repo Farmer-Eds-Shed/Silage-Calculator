@@ -10,113 +10,117 @@
 
 <body>
     <h1 class="heading">Silage Calculator</h1>
-    <h2>Stock to be Housed</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Animal Type</th>
-                <th>No. Stock</th>
-                <th>Months Housed</th>
-                <th>Silage t/animal</th>
-                <th>Tonnes</th>
-                <th>Bales</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Dairy Cows</th>
-                <th><input type="number"></th>
-                <th><input type="number"></th>
-                <th>1.6</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>Suckler Cows</th>
-                <th><input type="number"></th>
-                <th><input type="number"></th>
-                <th>1.4</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>In-Calf Heifers</th>
-                <th><input type="number"></th>
-                <th><input type="number"></th>
-                <th>1.3</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>Weanlings</th>
-                <th><input type="number"></th>
-                <th><input type="number"></th>
-                <th>0.7</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>Stores</th>
-                <th><input type="number"></th>
-                <th><input type="number"></th>
-                <th>1.3</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-        </tbody>
-    </table>
+    <section>
+        <h2>Stock to be Housed</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>No. Stock</th>
+                    <th>Months Housed</th>
+                    <th>Silage t/animal</th>
+                    <th>Tonnes</th>
+                    <th>Bales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Dairy Cows</th>
+                    <th><input type="number"></th>
+                    <th><input type="number"></th>
+                    <th>1.6</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>Suckler Cows</th>
+                    <th><input type="number"></th>
+                    <th><input type="number"></th>
+                    <th>1.4</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>In-Calf Heifers</th>
+                    <th><input type="number"></th>
+                    <th><input type="number"></th>
+                    <th>1.3</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>Weanlings</th>
+                    <th><input type="number"></th>
+                    <th><input type="number"></th>
+                    <th>0.7</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>Stores</th>
+                    <th><input type="number"></th>
+                    <th><input type="number"></th>
+                    <th>1.3</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Silage Available</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Amount</th>
+                    <th>Tonnes</th>
+                    <th>Bales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Silage in Pit m3</th>
+                    <th><input type="number"></th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>Silage Bales</th>
+                    <th><input type="number"></th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+                <tr>
+                    <th>Total</th>
+                    <th></th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <h2>Winter Outlook</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Tonnes</th>
+                    <th>Bales</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>Surplus/Defecit</th>
+                    <th>0</th>
+                    <th>0</th>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <button>Calculate</button>
 
-    <h2>Silage Available</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Silage Saved</th>
-                <th>Amount</th>
-                <th>Tonnes</th>
-                <th>Bales</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Silage in Pit m3</th>
-                <th><input type="number"></th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>Silage Bales</th>
-                <th><input type="number"></th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <th></th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>Outlook</h2>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>Tonnes</th>
-                <th>Bales</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>Surplus/Defecit</th>
-                <th>0</th>
-                <th>0</th>
-            </tr>
-        </tbody>
-    </table>
-
-    
 
     <body>
         <div id="myChart" style="width:100%; max-width:600px; height:200px;"></div>
