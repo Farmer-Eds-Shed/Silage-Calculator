@@ -4,15 +4,24 @@ function stock() {
     let heifers = document.getElementById("heifers").value;
     let weanlings = document.getElementById("weanlings").value;
     let stores = document.getElementById("stores").value;
-    let dairyCowsMonths = document.getElementById("dairy-cows-Months").value;
+    let dairyCowsMonths = document.getElementById("dairy-cows-months").value;
     let sucklerCowsMonths = document.getElementById("suckler-cows-months").value;
     let heifersMonths = document.getElementById("heifers-months").value;
     let weanlingsMonths = document.getElementById("weanlings-months").value;
     let storesMonths = document.getElementById("stores-months").value;
-    
-    let dairyCowsTonnes = dairyCows * 1.6;
-    let dairyCowsBales = dairyCowsTones / .6;
+
+    let dairyCowsTonnes = dairyCows * dairyCowsMonths * 1.6;
+    let dairyCowsBales = dairyCowsTonnes / .6;
+    console.log(dairyCowsTonnes);
 }
+
+function calculate(event) {
+    stock();
+
+}
+
+let calcButton = document.getElementById('calculate');
+calcButton.addEventListener('click', calculate);
 
 
 google.charts.load('current', { 'packages': ['corechart'] });
@@ -20,6 +29,7 @@ google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     const data = google.visualization.arrayToDataTable([
+
         ['Silage', 'Tonnes', { role: "style" }],
         ['Required', 55, "green"],
         ['Available', 49, "red"]
