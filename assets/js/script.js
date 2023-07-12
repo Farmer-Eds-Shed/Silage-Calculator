@@ -1,23 +1,23 @@
-function stock() {
-    let dairyCows = document.getElementById("dairy-cows").value;
-    let sucklerCows = document.getElementById("suckler-cows").value;
-    let heifers = document.getElementById("heifers").value;
-    let weanlings = document.getElementById("weanlings").value;
-    let stores = document.getElementById("stores").value;
-    let dairyCowsMonths = document.getElementById("dairy-cows-months").value;
-    let sucklerCowsMonths = document.getElementById("suckler-cows-months").value;
-    let heifersMonths = document.getElementById("heifers-months").value;
-    let weanlingsMonths = document.getElementById("weanlings-months").value;
-    let storesMonths = document.getElementById("stores-months").value;
+function stock(cattleType) {
+    let cattle = document.getElementById(cattleType).value;
+    let months = document.getElementById(cattleType + "-months").value;
+    let intake = document.getElementsByClassName(cattleType + "-silage")[0].innerHTML;
+    let tonnes = document.getElementsByClassName(cattleType + "-silage")[1];
+    let bales = document.getElementsByClassName(cattleType + "-silage")[2];
 
-    let dairyCowsTonnes = dairyCows * dairyCowsMonths * 1.6;
-    let dairyCowsBales = dairyCowsTonnes / .6;
-    console.log(dairyCowsTonnes);
+    tonnes.innerHTML = parseInt(cattle * months * intake);
+    bales.innerHTML = parseInt(tonnes.innerHTML * .6);
+    return tonnes.innerHTML;
 }
 
-function calculate(event) {
-    stock();
 
+
+function calculate(event) {
+    console.log(stock("dairy"));
+    console.log(stock("suckler"));
+    console.log(stock("heifers"));
+    console.log(stock("weanlings"));
+    console.log(stock("stores"));
 }
 
 let calcButton = document.getElementById('calculate');
