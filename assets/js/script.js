@@ -1,3 +1,20 @@
+function stock() {
+    let dairyCows = document.getElementById("dairy-cows").value;
+    let sucklerCows = document.getElementById("suckler-cows").value;
+    let heifers = document.getElementById("heifers").value;
+    let weanlings = document.getElementById("weanlings").value;
+    let stores = document.getElementById("stores").value;
+    let dairyCowsMonths = document.getElementById("dairy-cows-Months").value;
+    let sucklerCowsMonths = document.getElementById("suckler-cows-months").value;
+    let heifersMonths = document.getElementById("heifers-months").value;
+    let weanlingsMonths = document.getElementById("weanlings-months").value;
+    let storesMonths = document.getElementById("stores-months").value;
+    
+    let dairyCowsTonnes = dairyCows * 1.6;
+    let dairyCowsBales = dairyCowsTones / .6;
+}
+
+
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
