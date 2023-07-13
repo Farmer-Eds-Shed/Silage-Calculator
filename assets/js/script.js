@@ -1,8 +1,8 @@
 /**
- * Returns tonnes consumed per month.
+ * Returns tonnes required per month.
  *
  * @param {string} cattleType The cattle type.
- * @return {number} Tonnes consumed per month.
+ * @return {number} Tonnes required per month.
  */
 
 function stock(cattleType) {
@@ -14,15 +14,23 @@ function stock(cattleType) {
 
     tonnes.innerHTML = parseInt(cattle * months * intake);
     bales.innerHTML = parseInt(tonnes.innerHTML * .6);
-    return tonnes.innerHTML;
+    return parseInt(tonnes.innerHTML);
 }
 
 /**
  * Total stock function.
  *
+ * @return {number} Total tonnes required per month.
  */
 function stockTotal() {
+    let dairy = stock("dairy");
+    let suckler = stock("suckler");
+    let heifers = stock("heifers");
+    let weanlings = stock("weanlings");
+    let stores = stock("stores");
 
+    let total = dairy + suckler + heifers + weanlings + stores;
+    return total;
 }
 
 /**
@@ -34,6 +42,8 @@ function calculate(event) {
     console.log(stock("heifers"));
     console.log(stock("weanlings"));
     console.log(stock("stores"));
+    console.log(stockTotal());
+
 }
 
 //calcButton event listener
