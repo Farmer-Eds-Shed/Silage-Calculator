@@ -4,7 +4,6 @@
  * @param {string} cattleType The cattle type.
  * @return {number} Tonnes required per month.
  */
-
 function stock(cattleType) {
     let cattle = document.getElementById(cattleType).value;
     let months = document.getElementById(cattleType + "-months").value;
@@ -30,7 +29,7 @@ function stockTotal() {
     let stores = stock("stores");
 
     let total = dairy + suckler + heifers + weanlings + stores;
-    return total;
+    return parseInt(total);
 }
 
 /**
@@ -43,37 +42,42 @@ function silageStock(silageType) {
     let silageQuantity = document.getElementById(silageType + "-stock").value;
     let tonnes = document.getElementsByClassName(silageType)[0];
     let bales = document.getElementsByClassName(silageType)[1];
+    let output = [];
+
     if (silageType == "pit") {
-        tonnes.innerHTML = parseInt(silageQuantity * .77);
-        bales.innerHTML = parseInt(tonnes.innerHTML * .6);
+        output.bales = parseInt(silageQuantity * .6);
+        output.tonnes = parseInt(silageQuantity * .77);
     }
     else if (silageType == "bales") {
-        bales.innerHTML = parseInt(silageQuantity);
-        tonnes.innerHTML = parseInt(silageQuantity / .6);
+        output.bales = parseInt(silageQuantity);
+        output.tonnes = parseInt(silageQuantity / .6);
     }
-    return parseInt(tonnes.innerHTML);
+
+    tonnes.innerHTML = output.tonnes;
+    bales.innerHTML = output.bales;
+    return output;
 }
 
 /**
  * Total silage function.
  *
- * @return {number} Total tonnes of silage in stock.
+ * @return {array} Total tonnes of silage in stock.
  */
 function silageTotal() {
-    let pit = silageStock("pit");
-    let bales = silageStock("bales");
-    let total = bales + pit;
+    let totalTonnes = silageStock("pit").tonnes + silageStock("bales").tonnes;
+    let totalBales = silageStock("pit").bales + silageStock("bales").bales;
 
-    return total;
+    document.getElementById("pit-total").innerHTML = totalTonnes;
+    document.getElementById("bales-total").innerHTML = totalBales;
+    return parseInt(totalTonnes);
 }
 
 /**
  * Calculate function.
  */
 function calculate(event) {
-
-    console.log("Total cattle " + stockTotal());
-    console.log("Total Silage " + silageTotal());
+    drawChart();
+    
 }
 
 //calcButton event listener
@@ -90,11 +94,15 @@ google.charts.setOnLoadCallback(drawChart);
  * Draws a Google Charts Bar Chart.
  */
 function drawChart() {
-    const data = google.visualization.arrayToDataTable([
+    let stock = stockTotal();
+    let silage = silageTotal();
+    let barColor = silage >= stock ? "green" : "red";
 
+    console.log("test " + stock);
+    const data = google.visualization.arrayToDataTable([
         ['Silage', 'Tonnes', { role: "style" }],
-        ['Required', 55, "green"],
-        ['Available', 49, "red"]
+        ['Required', stock, "green"],
+        ['Available', silage, barColor]
     ]);
 
     const options = {
