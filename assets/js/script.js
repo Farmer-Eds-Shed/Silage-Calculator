@@ -1,3 +1,10 @@
+/**
+ * Returns tonnes consumed per month.
+ *
+ * @param {string} cattleType The cattle type.
+ * @return {number} Tonnes consumed per month.
+ */
+
 function stock(cattleType) {
     let cattle = document.getElementById(cattleType).value;
     let months = document.getElementById(cattleType + "-months").value;
@@ -10,8 +17,17 @@ function stock(cattleType) {
     return tonnes.innerHTML;
 }
 
+/**
+ * Total stock function.
+ *
+ */
+function stockTotal() {
 
+}
 
+/**
+ * Calculate function.
+ */
 function calculate(event) {
     console.log(stock("dairy"));
     console.log(stock("suckler"));
@@ -20,13 +36,19 @@ function calculate(event) {
     console.log(stock("stores"));
 }
 
+//calcButton event listener
 let calcButton = document.getElementById('calculate');
 calcButton.addEventListener('click', calculate);
 
 
+//Google Charts
 google.charts.load('current', { 'packages': ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 
+
+/**
+ * Draws a Google Charts Bar Chart.
+ */
 function drawChart() {
     const data = google.visualization.arrayToDataTable([
 
@@ -36,11 +58,8 @@ function drawChart() {
     ]);
 
     const options = {
-        //title: 'Silage',
         legend: 'none'
     };
-
-
 
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
     chart.draw(data, options);
