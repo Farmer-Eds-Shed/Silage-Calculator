@@ -34,16 +34,46 @@ function stockTotal() {
 }
 
 /**
+ * Returns silage stock by type.
+ *
+ * @param {string} silageType The silage type.
+ * @return {number} tonnes silage in stock.
+ */
+function silageStock(silageType) {
+    let silageQuantity = document.getElementById(silageType + "-stock").value;
+    let tonnes = document.getElementsByClassName(silageType)[0];
+    let bales = document.getElementsByClassName(silageType)[1];
+    if (silageType == "pit") {
+        tonnes.innerHTML = parseInt(silageQuantity * .77);
+        bales.innerHTML = parseInt(tonnes.innerHTML * .6);
+    }
+    else if (silageType == "bales") {
+        bales.innerHTML = parseInt(silageQuantity);
+        tonnes.innerHTML = parseInt(silageQuantity / .6);
+    }
+    return parseInt(tonnes.innerHTML);
+}
+
+/**
+ * Total silage function.
+ *
+ * @return {number} Total tonnes of silage in stock.
+ */
+function silageTotal() {
+    let pit = silageStock("pit");
+    let bales = silageStock("bales");
+    let total = bales + pit;
+
+    return total;
+}
+
+/**
  * Calculate function.
  */
 function calculate(event) {
-    console.log(stock("dairy"));
-    console.log(stock("suckler"));
-    console.log(stock("heifers"));
-    console.log(stock("weanlings"));
-    console.log(stock("stores"));
-    console.log(stockTotal());
 
+    console.log("Total cattle " + stockTotal());
+    console.log("Total Silage " + silageTotal());
 }
 
 //calcButton event listener
