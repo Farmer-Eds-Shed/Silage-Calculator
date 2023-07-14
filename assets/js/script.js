@@ -36,14 +36,18 @@ function stockTotal() {
     let heifersBales = stock("heifers").bales;
     let weanlingsBales = stock("weanlings").bales;
     let storesBales = stock("stores").bales;
+    let output = [];
 
     let totalTonnes = dairyTonnes + sucklerTonnes + heifersTonnes + weanlingsTonnes + storesTonnes;
     let totalBales = dairyBales + sucklerBales + heifersBales + weanlingsBales + storesBales;
 
+    output.tonnes = totalTonnes;
+    output.bales = totalBales;
+
     document.getElementsByClassName("stock-total")[0].innerHTML = totalTonnes;
     document.getElementsByClassName("stock-total")[1].innerHTML = totalBales;
 
-    return parseInt(totalTonnes);
+    return output;
 }
 
 /**
@@ -85,18 +89,38 @@ function silageTotal() {
 
     let totalTonnes = pitTonnes + baleTonnes;
     let totalBales = pitBales + bales;
+    let output = [];
 
-    document.getElementById("pit-total").innerHTML = totalTonnes;
-    document.getElementById("bales-total").innerHTML = totalBales;
-    return parseInt(totalTonnes);
+    output.tonnes = totalTonnes;
+    output.bales = totalBales;
+
+    document.getElementsByClassName("silage-total")[0].innerHTML = totalTonnes;
+    document.getElementsByClassName("silage-total")[1].innerHTML = totalBales;
+    return output;
 }
 
 /**
  * Calculate function.
  */
-function calculate(event) {
-    drawChart();
+function calculate() {
+    let stockTonnes = stockTotal().tonnes;
+    let silageTonnes = silageTotal().tonnes;
+    let stockBales = stockTotal().bales;
+    let silageBales = silageTotal().bales;
 
+    let requiredBales = parseInt(silageBales - stockBales);
+    let requiredTonnes = parseInt(silageTonnes - stockTonnes);
+
+    document.getElementsByClassName("result")[0].innerHTML = requiredTonnes;
+    document.getElementsByClassName("result")[1].innerHTML = requiredBales;
+
+    //draw graph if !==0 else clear 
+    if (silageTonnes !== 0 || stockTonnes !== 0) {
+        google.charts.setOnLoadCallback(drawChart);
+    }
+    else {
+        document.getElementById("myChart").innerHTML = "";
+    }
 }
 
 //calcButton event listener
@@ -104,17 +128,17 @@ let calcButton = document.getElementById('calculate');
 calcButton.addEventListener('click', calculate);
 
 
-//Google Charts
+
+//Load Google Charts Library
 google.charts.load('current', { 'packages': ['corechart'] });
-google.charts.setOnLoadCallback(drawChart);
 
 
 /**
  * Draws a Google Charts Bar Chart.
  */
 function drawChart() {
-    let stock = stockTotal();
-    let silage = silageTotal();
+    let stock = stockTotal().tonnes;
+    let silage = silageTotal().tonnes;
     let barColor = silage >= stock ? "green" : "red";
 
     const data = google.visualization.arrayToDataTable([
@@ -125,8 +149,12 @@ function drawChart() {
 
     const options = {
         legend: 'none',
-        hAxis: { minValue: 0 }
+        hAxis: {
+            minValue: 0,
+        }
+
     };
+
 
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
     chart.draw(data, options);
