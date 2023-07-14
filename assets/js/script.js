@@ -13,7 +13,7 @@ function stock(cattleType) {
     let output = [];
 
     output.tonnes = parseInt(cattle * months * intake);
-    output.bales = parseInt(tonnes.innerHTML * 0.6);
+    output.bales = parseInt(tonnes.innerHTML / 0.8);
 
     tonnes.innerHTML = output.tonnes;
     bales.innerHTML = output.bales;
@@ -59,12 +59,12 @@ function silageStock(silageType) {
     let output = [];
 
     if (silageType == "pit") {
-        output.bales = parseInt(silageQuantity * 0.6);
+        output.bales = parseInt(silageQuantity * 0.77 / 0.8);
         output.tonnes = parseInt(silageQuantity * 0.77);
     }
     else if (silageType == "bales") {
         output.bales = parseInt(silageQuantity);
-        output.tonnes = parseInt(silageQuantity * .6);
+        output.tonnes = parseInt(silageQuantity * 0.8);
     }
 
     tonnes.innerHTML = output.tonnes;
