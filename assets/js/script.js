@@ -124,7 +124,8 @@ function drawChart() {
     ]);
 
     const options = {
-        legend: 'none'
+        legend: 'none',
+        hAxis: { minValue: 0 }
     };
 
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
