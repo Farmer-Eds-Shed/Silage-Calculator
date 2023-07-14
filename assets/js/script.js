@@ -2,7 +2,7 @@
  * Returns tonnes required per month.
  *
  * @param {string} cattleType The cattle type.
- * @return {number} Tonnes required per month.
+ * @return {array} Tonnes and Bales required per month.
  */
 function stock(cattleType) {
     let cattle = document.getElementById(cattleType).value;
@@ -10,10 +10,14 @@ function stock(cattleType) {
     let intake = document.getElementsByClassName(cattleType + "-silage")[0].innerHTML;
     let tonnes = document.getElementsByClassName(cattleType + "-silage")[1];
     let bales = document.getElementsByClassName(cattleType + "-silage")[2];
+    let output = [];
 
-    tonnes.innerHTML = parseInt(cattle * months * intake);
-    bales.innerHTML = parseInt(tonnes.innerHTML * .6);
-    return parseInt(tonnes.innerHTML);
+    output.tonnes = parseInt(cattle * months * intake);
+    output.bales = parseInt(tonnes.innerHTML * 0.6);
+
+    tonnes.innerHTML = output.tonnes;
+    bales.innerHTML = output.bales;
+    return output;
 }
 
 /**
@@ -22,21 +26,31 @@ function stock(cattleType) {
  * @return {number} Total tonnes required per month.
  */
 function stockTotal() {
-    let dairy = stock("dairy");
-    let suckler = stock("suckler");
-    let heifers = stock("heifers");
-    let weanlings = stock("weanlings");
-    let stores = stock("stores");
+    let dairyTonnes = stock("dairy").tonnes;
+    let sucklerTonnes = stock("suckler").tonnes;
+    let heifersTonnes = stock("heifers").tonnes;
+    let weanlingsTonnes = stock("weanlings").tonnes;
+    let storesTonnes = stock("stores").tonnes;
+    let dairyBales = stock("dairy").bales;
+    let sucklerBales = stock("suckler").bales;
+    let heifersBales = stock("heifers").bales;
+    let weanlingsBales = stock("weanlings").bales;
+    let storesBales = stock("stores").bales;
 
-    let total = dairy + suckler + heifers + weanlings + stores;
-    return parseInt(total);
+    let totalTonnes = dairyTonnes + sucklerTonnes + heifersTonnes + weanlingsTonnes + storesTonnes;
+    let totalBales = dairyBales + sucklerBales + heifersBales + weanlingsBales + storesBales;
+
+    document.getElementsByClassName("stock-total")[0].innerHTML = totalTonnes;
+    document.getElementsByClassName("stock-total")[1].innerHTML = totalBales;
+
+    return parseInt(totalTonnes);
 }
 
 /**
  * Returns silage stock by type.
  *
  * @param {string} silageType The silage type.
- * @return {number} tonnes silage in stock.
+ * @return {object} tonnes silage in stock.
  */
 function silageStock(silageType) {
     let silageQuantity = document.getElementById(silageType + "-stock").value;
@@ -45,12 +59,12 @@ function silageStock(silageType) {
     let output = [];
 
     if (silageType == "pit") {
-        output.bales = parseInt(silageQuantity * .6);
-        output.tonnes = parseInt(silageQuantity * .77);
+        output.bales = parseInt(silageQuantity * 0.6);
+        output.tonnes = parseInt(silageQuantity * 0.77);
     }
     else if (silageType == "bales") {
         output.bales = parseInt(silageQuantity);
-        output.tonnes = parseInt(silageQuantity / .6);
+        output.tonnes = parseInt(silageQuantity * .6);
     }
 
     tonnes.innerHTML = output.tonnes;
@@ -61,11 +75,16 @@ function silageStock(silageType) {
 /**
  * Total silage function.
  *
- * @return {array} Total tonnes of silage in stock.
+ * @return {number} Total tonnes of silage in stock.
  */
 function silageTotal() {
-    let totalTonnes = silageStock("pit").tonnes + silageStock("bales").tonnes;
-    let totalBales = silageStock("pit").bales + silageStock("bales").bales;
+    let pitBales = silageStock("pit").bales;
+    let bales = silageStock("bales").bales;
+    let pitTonnes = silageStock("pit").tonnes;
+    let baleTonnes = silageStock("bales").tonnes;
+
+    let totalTonnes = pitTonnes + baleTonnes;
+    let totalBales = pitBales + bales;
 
     document.getElementById("pit-total").innerHTML = totalTonnes;
     document.getElementById("bales-total").innerHTML = totalBales;
@@ -77,7 +96,7 @@ function silageTotal() {
  */
 function calculate(event) {
     drawChart();
-    
+
 }
 
 //calcButton event listener
@@ -98,7 +117,6 @@ function drawChart() {
     let silage = silageTotal();
     let barColor = silage >= stock ? "green" : "red";
 
-    console.log("test " + stock);
     const data = google.visualization.arrayToDataTable([
         ['Silage', 'Tonnes', { role: "style" }],
         ['Required', stock, "green"],
