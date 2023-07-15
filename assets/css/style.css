@@ -1,5 +1,5 @@
 body {
-    display: flex font-family: Arial;
+    font-family: Arial;
 }
 
 /* Style the tab */
@@ -7,6 +7,9 @@ body {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6px 12px;
 }
 
 /* Style the buttons inside the tab */
@@ -19,6 +22,7 @@ body {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
+
 }
 
 /* Change background color of buttons on hover */
@@ -37,12 +41,13 @@ body {
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
-
+    margin: 0 auto;
+    max-width: 900px;
 }
 
 /*input Fields*/
 input {
-    width: 50px;
+    width: 40px;
 }
 
 /*Chart Styling*/
@@ -50,8 +55,52 @@ input {
     width: 100%;
     max-width: 600px;
     height: 200px;
+    margin: 0 auto;
 }
 
+
+h2,
+h1 {
+    text-align: center;
+}
+
+/*table Styling*/
 table {
-    width: 100%
+    width: 100%;
+    max-width: 800px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+@media all and (max-width: 600px) {
+
+    #stock-table tr th:nth-child(4),
+    #stock-table tr td:nth-child(4) {
+        display: none;
+    }
+
+    #stock-table tr th:nth-child(6),
+    #stock-table tr td:nth-child(6) {
+        display: none;
+    }
+
 }

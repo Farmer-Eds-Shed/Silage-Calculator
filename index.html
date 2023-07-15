@@ -17,65 +17,65 @@
     </div>
     <section id="stock" class="tabcontent">
         <h2>Stock to be Housed</h2>
-        <table>
+        <table id="stock-table">
             <thead>
                 <tr>
                     <th></th>
-                    <th>No. Stock</th>
-                    <th>Months Housed</th>
-                    <th>Silage t/animal</th>
+                    <th>Stock</th>
+                    <th>Months</th>
+                    <th>t/month</th>
                     <th>Tonnes</th>
                     <th>Bales</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>Dairy Cows</th>
-                    <th><input id="dairy" type="number" value="0"></th>
-                    <th><input id="dairy-months" type="number" value="0"></th>
-                    <th class="dairy-silage">1.6</th>
-                    <th class="dairy-silage">0</th>
-                    <th class="dairy-silage">0</th>
+                    <td>Dairy Cows</td>
+                    <td><input id="dairy" type="number" value="0"></td>
+                    <td><input id="dairy-months" type="number" value="1" min="1" max="12"></td>
+                    <td class="dairy-silage">1.6</td>
+                    <td class="dairy-silage">0</td>
+                    <td class="dairy-silage">0</td>
                 </tr>
                 <tr>
-                    <th>Suckler Cows</th>
-                    <th><input id="suckler" type="number" value="0"></th>
-                    <th><input id="suckler-months" type="number" value="0"></th>
-                    <th class="suckler-silage">1.4</th>
-                    <th class="suckler-silage">0</th>
-                    <th class="suckler-silage">0</th>
+                    <td>Suckler Cows</td>
+                    <td><input id="suckler" type="number" value="0"></td>
+                    <td><input id="suckler-months" type="number" value="1" min="1" max="12"></td>
+                    <td class="suckler-silage">1.4</td>
+                    <td class="suckler-silage">0</td>
+                    <td class="suckler-silage">0</td>
                 </tr>
                 <tr>
-                    <th>In-Calf Heifers</th>
-                    <th><input id="heifers" type="number" value="0"></th>
-                    <th><input id="heifers-months" type="number" value="0"></th>
-                    <th class="heifers-silage">1.3</th>
-                    <th class="heifers-silage">0</th>
-                    <th class="heifers-silage">0</th>
+                    <td>In-Calf Heifers</td>
+                    <td><input id="heifers" type="number" value="0"></td>
+                    <td><input id="heifers-months" type="number" value="1" min="1" max="12"></td>
+                    <td class="heifers-silage">1.3</td>
+                    <td class="heifers-silage">0</td>
+                    <td class="heifers-silage">0</td>
                 </tr>
                 <tr>
-                    <th>Weanlings</th>
-                    <th><input id="weanlings" type="number" value="0"></th>
-                    <th><input id="weanlings-months" type="number" value="0"></th>
-                    <th class="weanlings-silage">0.7</th>
-                    <th class="weanlings-silage">0</th>
-                    <th class="weanlings-silage">0</th>
+                    <td>0-1 Years</td>
+                    <td><input id="weanlings" type="number" value="0"></td>
+                    <td><input id="weanlings-months" type="number" value="1" min="1" max="12"></td>
+                    <td class="weanlings-silage">0.7</td>
+                    <td class="weanlings-silage">0</td>
+                    <td class="weanlings-silage">0</td>
                 </tr>
                 <tr>
-                    <th>Stores</th>
-                    <th><input id="stores" type="number" value="0"></th>
-                    <th><input id="stores-months" type="number" value="0"></th>
-                    <th class="stores-silage">1.3</th>
-                    <th class="stores-silage">0</th>
-                    <th class="stores-silage">0</th>
+                    <td>1-2 Years</td>
+                    <td><input id="stores" type="number" value="0"></td>
+                    <td><input id="stores-months" type="number" value="1" min="1" max="12"></td>
+                    <td class="stores-silage">1.3</td>
+                    <td class="stores-silage">0</td>
+                    <td class="stores-silage">0</td>
                 </tr>
                 <tr>
-                    <th>Total</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th class="stock-total">0</th>
-                    <th class="stock-total">0</th>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="stock-total">0</td>
+                    <td class="stock-total">0</td>
                 </tr>
             </tbody>
         </table>
@@ -93,22 +93,22 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>Silage in Pit m3</th>
-                    <th><input id="pit-stock" type="number" value="0"></th>
-                    <th class="pit">0</th>
-                    <th class="pit">0</th>
+                    <td>Silage Pit m3</td>
+                    <td><input id="pit-stock" type="number" value="0"></td>
+                    <td class="pit">0</td>
+                    <td class="pit">0</td>
                 </tr>
                 <tr>
-                    <th>Silage Bales</th>
-                    <th><input id="bales-stock" type="number" value="0"></th>
-                    <th class="bales">0</th>
-                    <th class="bales">0</th>
+                    <td>Silage Bales</td>
+                    <td><input id="bales-stock" type="number" value="0"></td>
+                    <td class="bales">0</td>
+                    <td class="bales">0</td>
                 </tr>
                 <tr>
-                    <th>Total</th>
-                    <th></th>
-                    <th class="silage-total">0</th>
-                    <th class="silage-total">0</th>
+                    <td>Total</td>
+                    <td></td>
+                    <td class="silage-total">0</td>
+                    <td class="silage-total">0</td>
                 </tr>
             </tbody>
         </table>
@@ -125,9 +125,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>Surplus/Defecit</th>
-                    <th class="result">0</th>
-                    <th class="result">0</th>
+                    <td>Surplus/Defecit</td>
+                    <td class="result">0</td>
+                    <td class="result">0</td>
                 </tr>
             </tbody>
         </table>
