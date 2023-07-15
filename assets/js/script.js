@@ -127,11 +127,19 @@ function calculate() {
 let calcButton = document.getElementById('calculate');
 calcButton.addEventListener('click', calculate);
 
+//const input = document.querySelector("input");
+//input.addEventListener("input", calculate);
 
+
+const inputs = document.querySelectorAll("input");
+
+inputs.forEach(input => {
+    input.addEventListener('focusout', calculate);
+});
 
 //Load Google Charts Library
 google.charts.load('current', { 'packages': ['corechart'] });
-
+document.getElementsByTagName("BODY")[0].onresize = function () { calculate(); };
 
 /**
  * Draws a Google Charts Bar Chart.
@@ -159,6 +167,7 @@ function drawChart() {
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
     chart.draw(data, options);
 }
+
 
 
 function openTab(evt, tabName) {
