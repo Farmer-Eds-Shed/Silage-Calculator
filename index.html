@@ -93,7 +93,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Silage Pit m3</td>
+                    <td>Silage Pit m<sup>3</sup></td>
                     <td><input id="pit-stock" type="number" value="0"></td>
                     <td class="pit">0</td>
                     <td class="pit">0</td>
@@ -125,14 +125,24 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Surplus/Defecit</td>
+                    <td>Silage Required</td>
+                    <td class="stock-total">0</td>
+                    <td class="stock-total">0</td>
+                </tr>
+                <tr>
+                    <td>Silage Available</td>
+                    <td class="silage-total">0</td>
+                    <td class="silage-total">0</td>
+                </tr>
+                <tr id="result-row">
+                    <td id="surplus">Surplus/Defecit</td>
                     <td class="result">0</td>
                     <td class="result">0</td>
                 </tr>
             </tbody>
         </table>
     </section>
-    <button id="calculate">Calculate</button>
+
 
 
     <div id="myChart"></div>

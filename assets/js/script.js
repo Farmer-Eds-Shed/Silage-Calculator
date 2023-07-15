@@ -1,3 +1,26 @@
+
+// Wait for the DOM to finish loading before running
+// Get the button elements and add event listeners to them
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    //calcButton event listener
+    //let calcButton = document.getElementById('calculate');
+    //calcButton.addEventListener('click', calculate);
+
+
+
+    //listen for all input boxes
+    const inputs = document.querySelectorAll("input");
+    inputs.forEach(input => {
+        input.addEventListener('focusout', calculate);
+    });
+
+
+
+});
+
+
 /**
  * Returns tonnes required per month.
  *
@@ -46,6 +69,8 @@ function stockTotal() {
 
     document.getElementsByClassName("stock-total")[0].innerHTML = totalTonnes;
     document.getElementsByClassName("stock-total")[1].innerHTML = totalBales;
+    document.getElementsByClassName("stock-total")[2].innerHTML = totalTonnes;
+    document.getElementsByClassName("stock-total")[3].innerHTML = totalBales;
 
     return output;
 }
@@ -96,6 +121,8 @@ function silageTotal() {
 
     document.getElementsByClassName("silage-total")[0].innerHTML = totalTonnes;
     document.getElementsByClassName("silage-total")[1].innerHTML = totalBales;
+    document.getElementsByClassName("silage-total")[2].innerHTML = totalTonnes;
+    document.getElementsByClassName("silage-total")[3].innerHTML = totalBales;
     return output;
 }
 
@@ -108,11 +135,20 @@ function calculate() {
     let stockBales = stockTotal().bales;
     let silageBales = silageTotal().bales;
 
-    let requiredBales = parseInt(silageBales - stockBales);
-    let requiredTonnes = parseInt(silageTonnes - stockTonnes);
+    let resultBales = parseInt(silageBales - stockBales);
+    let resultTonnes = parseInt(silageTonnes - stockTonnes);
 
-    document.getElementsByClassName("result")[0].innerHTML = requiredTonnes;
-    document.getElementsByClassName("result")[1].innerHTML = requiredBales;
+    document.getElementsByClassName("result")[0].innerHTML = resultTonnes;
+    document.getElementsByClassName("result")[1].innerHTML = resultBales;
+
+    if (Math.sign(resultTonnes) == -1) {
+        document.getElementById("surplus").innerHTML = "Deficit";
+        document.getElementById("result-row").setAttribute("class", "deficit");
+    }
+    else {
+        document.getElementById("surplus").innerHTML = "Surplus";
+        document.getElementById("result-row").setAttribute("class", "surplus");
+    }
 
     //draw graph if !==0 else clear 
     if (silageTonnes !== 0 || stockTonnes !== 0) {
@@ -122,20 +158,6 @@ function calculate() {
         document.getElementById("myChart").innerHTML = "";
     }
 }
-
-//calcButton event listener
-let calcButton = document.getElementById('calculate');
-calcButton.addEventListener('click', calculate);
-
-//const input = document.querySelector("input");
-//input.addEventListener("input", calculate);
-
-
-const inputs = document.querySelectorAll("input");
-
-inputs.forEach(input => {
-    input.addEventListener('focusout', calculate);
-});
 
 //Load Google Charts Library
 google.charts.load('current', { 'packages': ['corechart'] });
@@ -183,3 +205,5 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+

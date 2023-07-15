@@ -45,6 +45,10 @@ body {
     max-width: 900px;
 }
 
+#stock {
+    display: block;
+}
+
 /*input Fields*/
 input {
     width: 40px;
@@ -88,6 +92,16 @@ th {
     padding-bottom: 12px;
     text-align: left;
     background-color: #04AA6D;
+    color: white;
+}
+
+.surplus {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.deficit {
+    background-color: rgb(204, 70, 70);
     color: white;
 }
 
