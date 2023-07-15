@@ -10,7 +10,12 @@
 
 <body>
     <h1 class="heading">Silage Calculator</h1>
-    <section>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'stock')">Stock</button>
+        <button class="tablinks" onclick="openTab(event, 'silage')">Silage</button>
+        <button class="tablinks" onclick="openTab(event, 'outlook')">Outlook</button>
+    </div>
+    <section id="stock" class="tabcontent">
         <h2>Stock to be Housed</h2>
         <table>
             <thead>
@@ -75,7 +80,7 @@
             </tbody>
         </table>
     </section>
-    <section>
+    <section id="silage" class="tabcontent">
         <h2>Silage Available</h2>
         <table>
             <thead>
@@ -108,7 +113,7 @@
             </tbody>
         </table>
     </section>
-    <section>
+    <section id="outlook" class="tabcontent">
         <h2>Winter Outlook</h2>
         <table>
             <thead>
@@ -130,7 +135,7 @@
     <button id="calculate">Calculate</button>
 
 
-    <div id="myChart" style="width:100%; max-width:600px; height:200px;"></div>
+    <div id="myChart"></div>
 
 
     <script src="https://www.gstatic.com/charts/loader.js"></script>
