@@ -8,9 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let calcButton = document.getElementById('area-calc');
     calcButton.addEventListener('click', showArea);
 
+    //js-PDF Button event listener
+    let jsPDF = document.getElementById('js-pdf');
+    jsPDF.addEventListener('click', PDF);
 
     //listen for all input boxes
-    const inputs = document.querySelectorAll("input");
+    const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
         input.addEventListener('focusout', calculate);
         input.addEventListener('focus', function (e) {
@@ -187,6 +190,22 @@ function calculate() {
     }
 }
 
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+//External Libraries
+
 //Load Google Charts Library
 google.charts.load('current', { 'packages': ['corechart'] });
 document.getElementsByTagName("BODY")[0].onresize = function () { calculate(); };
@@ -213,25 +232,23 @@ function drawChart() {
 
     };
 
-
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
     chart.draw(data, options);
 }
 
+/**
+ * Generates a PDF from Table.
+ */
+function PDF() {
+    let doc = new jsPDF();
 
-
-function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+    doc.text(10, 20, 'Stock to be Housed');
+    doc.autoTable({ html: '#stock-table', startY: 25 });
+    console.log(doc);
+    doc.text(10, 100, 'Silage Available');
+    doc.autoTable({ html: '#silage-table', startY: 105 });
+    doc.text(10, 150, 'Winter Outlook');
+    doc.autoTable({ html: '#results-table', startY: 155 });
+    doc.save('table.pdf');
 }
-
 

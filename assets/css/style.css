@@ -44,7 +44,7 @@ body {
     border-top: none;
     margin: 0 auto;
     max-width: 900px;
-    min-height: 350px;
+    min-height: 400px;
 }
 
 #stock {
@@ -62,12 +62,6 @@ input {
     max-width: 600px;
     height: 200px;
     margin: 0 auto;
-}
-
-
-h2,
-h1 {
-    text-align: center;
 }
 
 /*table Styling*/
@@ -110,6 +104,7 @@ th {
 
 #area-calc {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 @media all and (max-width: 600px) {
