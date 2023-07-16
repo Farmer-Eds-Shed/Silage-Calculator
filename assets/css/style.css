@@ -43,6 +43,7 @@ body {
     border-top: none;
     margin: 0 auto;
     max-width: 900px;
+    min-height: 350px;
 }
 
 #stock {

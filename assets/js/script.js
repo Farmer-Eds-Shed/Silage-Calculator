@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll("input");
     inputs.forEach(input => {
         input.addEventListener('focusout', calculate);
+        input.addEventListener('focus', function (e) {
+            input.select();
+        });
     });
-
-
-
 });
 
 
@@ -169,11 +169,11 @@ document.getElementsByTagName("BODY")[0].onresize = function () { calculate(); }
 function drawChart() {
     let stock = stockTotal().tonnes;
     let silage = silageTotal().tonnes;
-    let barColor = silage >= stock ? "green" : "red";
+    let barColor = silage >= stock ? "#04AA6D" : "rgb(204, 70, 70)";
 
     const data = google.visualization.arrayToDataTable([
         ['Silage', 'Tonnes', { role: "style" }],
-        ['Required', stock, "green"],
+        ['Required', stock, "#04AA6D"],
         ['Available', silage, barColor]
     ]);
 
