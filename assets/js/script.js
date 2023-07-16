@@ -4,10 +4,9 @@
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    //calcButton event listener
-    //let calcButton = document.getElementById('calculate');
-    //calcButton.addEventListener('click', calculate);
-
+    //area-calc Button event listener
+    let calcButton = document.getElementById('area-calc');
+    calcButton.addEventListener('click', showArea);
 
 
     //listen for all input boxes
@@ -18,7 +17,36 @@ document.addEventListener("DOMContentLoaded", function () {
             input.select();
         });
     });
+
+    //listen for area-input boxes
+    const areaInputs = document.querySelectorAll(".area-input");
+    areaInputs.forEach(input => {
+        input.addEventListener('focusout', area);
+    });
+
 });
+
+function showArea() {
+    let areaTable = document.getElementById("area-table");
+
+    if (areaTable.style.display === "none") {
+        areaTable.style.display = "block";
+    } else {
+        areaTable.style.display = "none";
+    }
+}
+
+function area() {
+    let pitLength = document.getElementById("length").value;
+    let pitWidth = document.getElementById("width").value;
+    let pitHeight = document.getElementById("height").value;
+    let pitArea = parseInt(pitLength * pitWidth * pitHeight);
+
+    document.getElementById("area-result").innerHTML = pitArea;
+    document.getElementById("pit-stock").value = pitArea;
+
+    calculate();
+}
 
 
 /**

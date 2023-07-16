@@ -81,6 +81,7 @@
         </table>
     </section>
     <section id="silage" class="tabcontent">
+
         <h2>Silage Available</h2>
         <table>
             <thead>
@@ -109,6 +110,25 @@
                     <td></td>
                     <td class="silage-total">0</td>
                     <td class="silage-total">0</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="area-calc">Area Calculator</button>
+        <table id="area-table" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Lenght</th>
+                    <th>Height</th>
+                    <th>Width</th>
+                    <th>m<sup>3</sup></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input id="length" class="area-input" type="number" value="0"></td>
+                    <td><input id="height" class="area-input" type="number" value="0"></td>
+                    <td><input id="width" class="area-input" type="number" value="0"></td>
+                    <td id="area-result">0</td>
                 </tr>
             </tbody>
         </table>

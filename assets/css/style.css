@@ -1,5 +1,6 @@
 body {
     font-family: Arial;
+    text-align: center;
 }
 
 /* Style the tab */
@@ -75,13 +76,15 @@ table {
     max-width: 800px;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    margin: 0 auto;
+    margin: auto;
+
 }
 
 td,
 th {
     border: 1px solid #ddd;
     padding: 8px;
+    text-align: left;
 }
 
 tr:nth-child(even) {
@@ -91,7 +94,6 @@ tr:nth-child(even) {
 th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
     background-color: #04AA6D;
     color: white;
 }
@@ -104,6 +106,10 @@ th {
 .deficit {
     background-color: rgb(204, 70, 70);
     color: white;
+}
+
+#area-calc {
+    margin-top: 10px;
 }
 
 @media all and (max-width: 600px) {
