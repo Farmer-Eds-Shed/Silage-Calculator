@@ -68,6 +68,9 @@ function stock(cattleType) {
 
     output.tonnes = parseInt(cattle * months * intake);
     output.bales = parseInt(tonnes.innerHTML / 0.8);
+    output.cattle = cattle;
+    output.months = months;
+    output.intake = intake;
 
     tonnes.innerHTML = output.tonnes;
     bales.innerHTML = output.bales;
@@ -126,6 +129,7 @@ function silageStock(silageType) {
         output.bales = parseInt(silageQuantity);
         output.tonnes = parseInt(silageQuantity * 0.8);
     }
+    output.amount = silageQuantity;
 
     tonnes.innerHTML = output.tonnes;
     bales.innerHTML = output.bales;
@@ -242,13 +246,32 @@ function drawChart() {
 function PDF() {
     let doc = new jsPDF();
 
+    let stockHead = [['', 'Stock', 'Months', 't/months', 'Tonnes', 'Bales']];
+    let stockBody = [
+        ['Dairy Cows', stock('dairy').cattle, stock('dairy').months, 1.6, stock('dairy').tonnes, stock('dairy').bales],
+        ['Suckler Cows', stock('suckler').cattle, stock('suckler').months, 1.4, stock('suckler').tonnes, stock('suckler').bales],
+        ['In-Calf Heifers', stock('heifers').cattle, stock('heifers').months, 1.3, stock('heifers').tonnes, stock('heifers').bales],
+        ['0-1 Years', stock('weanlings').cattle, stock('weanlings').months, 0.7, stock('weanlings').tonnes, stock('weanlings').bales],
+        ['1-2 Years', stock('stores').cattle, stock('stores').months, 1.3, stock('stores').tonnes, stock('stores').bales],
+        ['Total', '', '', '', stockTotal().tonnes, stockTotal().bales],
+    ];
+
+    let silageHead = [['', 'Amount', 'Tonnes', 'Bales']];
+    let silageBody = [
+        ['Silage Pit m3', silageStock('pit').amount, silageStock('pit').tonnes, silageStock('pit').bales],
+        ['Silage Bales', silageStock('bales').amount, silageStock('bales').tonnes, silageStock('bales').bales],
+        ['Total', '', silageTotal().tonnes, silageTotal().bales],
+    ];
+
+
     doc.text(10, 20, 'Stock to be Housed');
-    doc.autoTable({ html: '#stock-table', startY: 25 });
-    console.log(doc);
+    doc.autoTable({ head: stockHead, body: stockBody, startY: 25 });
     doc.text(10, 100, 'Silage Available');
-    doc.autoTable({ html: '#silage-table', startY: 105 });
+    doc.autoTable({ head: silageHead, body: silageBody, startY: 105 });
     doc.text(10, 150, 'Winter Outlook');
     doc.autoTable({ html: '#results-table', startY: 155 });
-    doc.save('table.pdf');
+    //doc.save('table.pdf');
+    window.open(doc.output('bloburl'), '_blank');
+    //doc.output('dataurlnewwindow');
 }
 
