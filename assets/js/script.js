@@ -16,9 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
         input.addEventListener('change', calculate);
-        input.addEventListener('focus', function (e) {
+        input.addEventListener('focus', function () {
             input.select();
         });
+        input.addEventListener('keypress', function (e) {
+            // Get the key 
+            let key = e.key;
+            let regex = new RegExp("^[0-9]+$");
+
+            // Check if key is in the reg exp
+            if (!regex.test(key)) {
+
+                // Restrict the special characters
+                event.preventDefault();
+                return false;
+            }
+        });
+
     });
 
     //listen for area-input boxes
