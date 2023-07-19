@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //listen for all input boxes
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
-        input.addEventListener('focusout', calculate);
+        input.addEventListener('change', calculate);
         input.addEventListener('focus', function (e) {
             input.select();
         });
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //listen for area-input boxes
     const areaInputs = document.querySelectorAll(".area-input");
     areaInputs.forEach(input => {
-        input.addEventListener('focusout', area);
+        input.addEventListener('change', area);
     });
 
 });
