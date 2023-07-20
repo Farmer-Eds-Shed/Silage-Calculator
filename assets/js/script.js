@@ -31,6 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    //listen for reset buttons
+    const resets = document.querySelectorAll('.reset');
+    resets.forEach(reset => {
+        reset.addEventListener('click', function () {
+            inputs.forEach(input => {
+                input.value = input.defaultValue;
+                calculate();
+                document.getElementById("result-row").setAttribute("class", null);
+                document.getElementById("myChart").innerHTML = "";
+            });
+        });
+    });
+
+
     //listen for area-input boxes
     const areaInputs = document.querySelectorAll(".area-input");
     areaInputs.forEach(input => {
