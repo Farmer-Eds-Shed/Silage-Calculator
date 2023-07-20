@@ -1,8 +1,7 @@
 
 // Wait for the DOM to finish loading before running
-// Get the button elements and add event listeners to them
+// Get the button and input elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
-
 
     //area-calc Button event listener
     let calcButton = document.getElementById('area-calc');
@@ -15,24 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
     //listen for all input boxes
     const inputs = document.querySelectorAll('input');
     inputs.forEach(input => {
+        //calculate on input change
         input.addEventListener('change', calculate);
+        //highlight input text on focus
         input.addEventListener('focus', function () {
             input.select();
         });
+        //input validation keys 0-9 only
         input.addEventListener('keypress', function (e) {
-            // Get the key 
             let key = e.key;
             let regex = new RegExp("^[0-9]+$");
-
-            // Check if key is in the reg exp
             if (!regex.test(key)) {
-
-                // Restrict the special characters
-                event.preventDefault();
+                e.preventDefault();
                 return false;
             }
         });
-
     });
 
     //listen for area-input boxes
@@ -43,6 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
+/**
+ * Show/hide area calculator.
+ *
+ */
 function showArea() {
     let areaTable = document.getElementById("area-table");
 
@@ -53,6 +54,10 @@ function showArea() {
     }
 }
 
+/**
+ * Area Calculator.
+ * 
+ */
 function area() {
     let pitLength = document.getElementById("length").value;
     let pitWidth = document.getElementById("width").value;
@@ -208,6 +213,10 @@ function calculate() {
     }
 }
 
+/**
+ * Function to set active tab.
+ *
+ */
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
