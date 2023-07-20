@@ -44,6 +44,29 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    //listen for help buttons
+    const helpBtns = document.querySelectorAll('.help');
+    const modal = document.getElementById("help-modal");
+    helpBtns.forEach(helpBtn => {
+        helpBtn.addEventListener('click', function () {
+            modal.style.display = "block";
+        });
+    });
+
+    // when user clicks outside modal text area, close the modal
+    modal.addEventListener('click', function (event) {
+        if (event.target.id == "help-modal") {
+            modal.style.display = "none";
+        }
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    const closeBtn = document.getElementById("close");
+    closeBtn.addEventListener('click', function () {
+        modal.style.display = "none";
+    });
+
+
 
     //listen for area-input boxes
     const areaInputs = document.querySelectorAll(".area-input");
