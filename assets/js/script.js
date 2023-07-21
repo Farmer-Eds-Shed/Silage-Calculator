@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
             inputs.forEach(input => {
                 input.value = input.defaultValue;
                 calculate();
-                document.getElementById("result-row").setAttribute("class", null);
-                document.getElementById("myChart").innerHTML = "";
+                document.getElementById("result-row").setAttribute("class", "");
             });
         });
+
+
     });
 
     //listen for help buttons
@@ -66,14 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
     });
 
-
-
     //listen for area-input boxes
     const areaInputs = document.querySelectorAll(".area-input");
     areaInputs.forEach(input => {
         input.addEventListener('change', area);
     });
-
 });
 
 
@@ -90,6 +88,7 @@ function showArea() {
         areaTable.style.display = "none";
     }
 }
+
 
 /**
  * Area Calculator.
@@ -133,6 +132,7 @@ function stock(cattleType) {
     return output;
 }
 
+
 /**
  * Total stock function.
  *
@@ -165,6 +165,7 @@ function stockTotal() {
     return output;
 }
 
+
 /**
  * Returns silage stock by type.
  *
@@ -192,6 +193,7 @@ function silageStock(silageType) {
     return output;
 }
 
+
 /**
  * Total silage function.
  *
@@ -216,6 +218,7 @@ function silageTotal() {
     document.getElementsByClassName("silage-total")[3].innerHTML = totalBales;
     return output;
 }
+
 
 /**
  * Calculate function.
@@ -244,11 +247,13 @@ function calculate() {
     //draw graph if !==0 else clear 
     if (silageTonnes !== 0 || stockTonnes !== 0) {
         google.charts.setOnLoadCallback(drawChart);
+        document.getElementById("myChart").style.display = "block";
     }
     else {
-        document.getElementById("myChart").innerHTML = "";
+        document.getElementById("myChart").style.display = "none";
     }
 }
+
 
 /**
  * Function to set active tab.
@@ -268,11 +273,13 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
+
 //External Libraries
 
 //Load Google Charts Library
 google.charts.load('current', { 'packages': ['corechart'] });
 document.getElementsByTagName("BODY")[0].onresize = function () { calculate(); };
+
 
 /**
  * Draws a Google Charts Bar Chart.
@@ -299,6 +306,7 @@ function drawChart() {
     const chart = new google.visualization.BarChart(document.getElementById('myChart'));
     chart.draw(data, options);
 }
+
 
 /**
  * Generates a PDF from Table.
