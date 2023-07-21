@@ -131,7 +131,7 @@ th {
     /* Stay in place */
     z-index: 1;
     /* Sit on top */
-    padding-top: 100px;
+    padding-top: 5vh;
     /* Location of the box */
     left: 0;
     top: 0;
@@ -154,6 +154,8 @@ th {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 /* The Close Button */

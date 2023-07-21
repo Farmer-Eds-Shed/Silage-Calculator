@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A Winter Silage Budget Calculator">
     <link rel="icon" href="./favicon.ico" />
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,40 +35,45 @@
             <tbody>
                 <tr>
                     <td>Dairy Cows</td>
-                    <td><input id="dairy" type="number" min="0" value="0"></td>
-                    <td><input id="dairy-months" type="number" value="1" min="1" max="12"></td>
+                    <td><input id="dairy" type="number" min="0" value="0" aria-label="Number of Dairy Cows"></td>
+                    <td><input id="dairy-months" type="number" value="1" min="1" max="12"
+                            aria-label="Dairy Cows, Months to House"></td>
                     <td class="dairy-silage">1.6</td>
                     <td class="dairy-silage">0</td>
                     <td class="dairy-silage">0</td>
                 </tr>
                 <tr>
                     <td>Suckler Cows</td>
-                    <td><input id="suckler" type="number" min="0" value="0"></td>
-                    <td><input id="suckler-months" type="number" value="1" min="1" max="12"></td>
+                    <td><input id="suckler" type="number" min="0" value="0" aria-label="Number of Dairy Cows"></td>
+                    <td><input id="suckler-months" type="number" value="1" min="1" max="12"
+                            aria-label="Suckler Cows, Months to House"></td>
                     <td class="suckler-silage">1.4</td>
                     <td class="suckler-silage">0</td>
                     <td class="suckler-silage">0</td>
                 </tr>
                 <tr>
                     <td>In-Calf Heifers</td>
-                    <td><input id="heifers" type="number" min="0" value="0"></td>
-                    <td><input id="heifers-months" type="number" value="1" min="1" max="12"></td>
+                    <td><input id="heifers" type="number" min="0" value="0" aria-label="Number of In-Calf Heifers"></td>
+                    <td><input id="heifers-months" type="number" value="1" min="1" max="12"
+                            aria-label="In-Calf Heifers, Months to House"></td>
                     <td class="heifers-silage">1.3</td>
                     <td class="heifers-silage">0</td>
                     <td class="heifers-silage">0</td>
                 </tr>
                 <tr>
                     <td>0-1 Years</td>
-                    <td><input id="weanlings" type="number" min="0" value="0"></td>
-                    <td><input id="weanlings-months" type="number" value="1" min="1" max="12"></td>
+                    <td><input id="weanlings" type="number" min="0" value="0" aria-label="Number of 0-1 Year Olds"></td>
+                    <td><input id="weanlings-months" type="number" value="1" min="1" max="12"
+                            aria-label="0-1 Years, Months to House"></td>
                     <td class="weanlings-silage">0.7</td>
                     <td class="weanlings-silage">0</td>
                     <td class="weanlings-silage">0</td>
                 </tr>
                 <tr>
                     <td>1-2 Years</td>
-                    <td><input id="stores" type="number" min="0" value="0"></td>
-                    <td><input id="stores-months" type="number" value="1" min="1" max="12"></td>
+                    <td><input id="stores" type="number" min="0" value="0" aria-label="Number of 1-2 Year Olds">></td>
+                    <td><input id="stores-months" type="number" value="1" min="1" max="12"
+                            aria-label="1-2 Years, Months to House"></td>
                     <td class="stores-silage">1.3</td>
                     <td class="stores-silage">0</td>
                     <td class="stores-silage">0</td>
@@ -99,13 +105,14 @@
             <tbody>
                 <tr>
                     <td>Silage Pit m<sup>3</sup></td>
-                    <td><input id="pit-stock" type="number" min="0" value="0"></td>
+                    <td><input id="pit-stock" type="number" min="0" value="0" aria-label="Silage Pit in Meters Cubed">
+                    </td>
                     <td class="pit">0</td>
                     <td class="pit">0</td>
                 </tr>
                 <tr>
                     <td>Silage Bales</td>
-                    <td><input id="bales-stock" type="number" min="0" value="0"></td>
+                    <td><input id="bales-stock" type="number" min="0" value="0" aria-label="Number of Bales"></td>
                     <td class="bales">0</td>
                     <td class="bales">0</td>
                 </tr>
