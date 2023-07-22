@@ -3,6 +3,7 @@ body {
     text-align: center;
 }
 
+/* Style Buttons*/
 button {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -53,9 +54,11 @@ button {
     min-height: 400px;
 }
 
+/*display stock on load*/
 #stock {
     display: block;
 }
+
 
 /*input Fields*/
 input {
@@ -69,6 +72,7 @@ input {
     height: 200px;
     margin: 0 auto;
 }
+
 
 /*table Styling*/
 table {
@@ -86,6 +90,7 @@ th {
     text-align: left;
 }
 
+/*stripe every second row*/
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -97,17 +102,21 @@ th {
     color: white;
 }
 
+
+/*color green if surplus*/
 .surplus {
     background-color: #04AA6D;
     color: white;
 }
 
+/*color red if deficit*/
 .deficit {
     background-color: rgb(204, 70, 70);
     color: white;
 }
 
 
+/*help icon*/
 .help {
     font-size: 30px;
     color: darkgrey;
@@ -119,32 +128,24 @@ th {
     cursor: pointer;
 }
 
+/*help icon hover effect*/
 .help:hover {
     color: grey;
 }
 
+
 /* The Modal (background) */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     padding-top: 5vh;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -166,6 +167,7 @@ th {
     font-weight: bold;
 }
 
+/*close button hover effect*/
 #close:hover,
 #close:focus {
     color: #000;
