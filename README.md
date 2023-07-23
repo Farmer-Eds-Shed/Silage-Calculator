@@ -10,11 +10,20 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 
 - **Stock to be Housed**
 
+  - Calculates the total silage requirment for cattle by type/age in both tonnes and bales.
+
 - **Silage Available**
+
+  - Enter all silage available to the farm in m3 and/or bales and calculate total available in bales and tonnes.
+  - Optional, includes a calculator to work out silage pit in m3.
 
 - **Winter Outlook**
 
-- **PDF output**
+  - Produces a report showing silage required, silage available and any surplus/deficit.
+  - Optional, a report can be exported as a PDF.
+
+- **Graph**
+  - A graph is updated whenever silage or stock numbers are modified to show current stock levels.
 
 ### Features Left to Implement
 
@@ -30,7 +39,15 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
   - No errors were found when passing through the official [Jshint validator](https://jshint.com/)
     - The following metrics were returned:
 
+### Manual Testung
+
 ### Bugs
+
+- Graph not clearing on reset.
+- Graph displaying negative numbers on scale.
+- PDF not displaying input box values.
+- Input box focus issue.
+- Input validation issue, negative numbers and exponents.
 
 ## Deployment
 
@@ -44,3 +61,15 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calculator/
 
 ## Credits
+
+## General Code
+
+w3 schools
+stack overflow
+
+### Libraries used
+
+- Google Charts
+- jsPDF
+
+### Other Acknowlegements
