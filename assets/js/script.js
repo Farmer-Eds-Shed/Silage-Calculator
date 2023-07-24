@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             inputs.forEach(input => {
                 input.value = input.defaultValue;
                 calculate();
-                openTab(event, 'stock')
+                openTab(event, 'stock');
                 document.getElementById("result-row").setAttribute("class", "");
             });
         });
