@@ -54,8 +54,9 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 - Input box focus issue, calculation method not being called when input updated using arrow buttons on number inputs.
   - Solution was to use 'change' instead of 'focus out on event listener.
 - Input validation issue, negative numbers and exponents.
+  - Solution was to use 'keypress' on an event listener with 'RegExp("^[0-9]+$")'
 
-## lDeployment
+## Deployment
 
 - The site was deployed to GitHub pages. The steps to deploy are as follows:
   - In the GitHub repository, navigate to the Settings tab.
