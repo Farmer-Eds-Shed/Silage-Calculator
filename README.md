@@ -24,22 +24,34 @@ The site is a single page with 3 tabs.
 
   - Calculates the total silage requirements for cattle by type/age in both tonnes and bales.
 
+  ![stock](Docs/Readme_img/stock.png)
+
 - **Silage Available**
 
   - Enter all silage available to the farm in m3 and/or bales and calculate total available in bales and tonnes.
   - Optional, includes a calculator to work out silage pit in m3.
+
+  ![silage](Docs/Readme_img/silage.png)
 
 - **Winter Outlook**
 
   - Produces a report showing silage required, silage available and any surplus/deficit.
   - Optional, a report can be exported as a PDF.
 
+  ![outlook](Docs/Readme_img/outlook.png)
+
 - **Graph**
 
   - A graph is updated whenever silage or stock numbers are modified to show current stock levels.
+  - The available silage bar displays red if there is a silage deicit.
+
+  ![deficit](Docs/Readme_img/deficit.png)
 
 - **Help Modal**
+
   - Some basic information on how to use the site can be accessed by clicking on the **?** icon.
+
+  ![modal](Docs/Readme_img/modal.png)
 
 ### Features Yet to Implement
 
@@ -152,4 +164,5 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 
 ### Other Acknowledgements
 
+- [Favicon](https://favicon.io/)
 - **Mentor** Antonio Rodriguez
