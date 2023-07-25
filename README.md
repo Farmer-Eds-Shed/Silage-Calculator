@@ -1,8 +1,8 @@
 # Silage Calculator
 
-Silage Calculator is a winter feed budget tool to help farmers ensure that they have an appropriate stock of silage feed for the comming winter.
+Silage Calculator is a winter feed budget tool to help farmers ensure that they have an appropriate stock of silage feed for the comming winter. While it is most important that a farm has enough feed for the cattle housed over the winter it is also important not to carry too much more than required, as silage has a limited storage life especially in the form of bales. This tool can aid in planning of what additional feed will be required or if cattle or silage should be bought / sold to avoid wastage.
 
-The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calculator/
+The link to the live site can be found here - [Silage Calculator](https://farmer-eds-shed.github.io/Silage-Calculator/)
 
 ![Am I Responsive Image](Docs/Readme_img/responsive-site.png)
 
