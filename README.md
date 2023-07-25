@@ -1,16 +1,28 @@
 # Silage Calculator
 
-Silage Calculator is a winter feed budget tool to help farmers ensure that they have an appropriate stock of silage feed for the comming winter. While it is most important that a farm has enough feed for the cattle housed over the winter it is also important not to carry too much more than required, as silage has a limited storage life especially in the form of bales. This tool can aid in planning of what additional feed will be required or if cattle or silage should be bought / sold to avoid wastage.
+Silage Calculator is a winter feed budget tool to help farmers ensure that they have an appropriate stock of silage feed for the coming winter. While it is most important that a farm has enough feed for the cattle housed over the winter it is also important not to carry too much more than required, as silage has a limited storage life especially in the form of bales. This tool can aid in planning of what additional feed will be required or if cattle or silage should be bought / sold to avoid wastage.
 
 The link to the live site can be found here - [Silage Calculator](https://farmer-eds-shed.github.io/Silage-Calculator/)
 
 ![Am I Responsive Image](Docs/Readme_img/responsive-site.png)
 
+# Design
+
+The site has a somewhat minimalist theme which suits its utilitarian function. The overall look should seem familiar to most farmers who are generally accustomed to entering data through spreadsheets and online forms. The calculations used are based on a [silage planner](https://www.teagasc.ie/media/website/publications/2018/Fodder-Plan-18.pdf) created by [Teagasc](https://www.teagasc.ie/).
+
+### Layout
+
+The site is a single page with 3 tabs.
+
+- Stock to be Housed.
+- Silage Available.
+- Winter Outlook.
+
 ## Features
 
 - **Stock to be Housed**
 
-  - Calculates the total silage requirment for cattle by type/age in both tonnes and bales.
+  - Calculates the total silage requirements for cattle by type/age in both tonnes and bales.
 
 - **Silage Available**
 
@@ -23,24 +35,32 @@ The link to the live site can be found here - [Silage Calculator](https://farmer
   - Optional, a report can be exported as a PDF.
 
 - **Graph**
+
   - A graph is updated whenever silage or stock numbers are modified to show current stock levels.
 
-### Features Left to Implement
+- **Help Modal**
+  - Some basic information on how to use the site can be accessed by clicking on the **?** icon.
 
-## User Stories
+### Features Yet to Implement
+
+- Email PDF's.
+- Option to specify the bale weight, currently set at 800KG, in reality it may vary from 600KG to 900KG+.
+
+# User Stories
 
 ### Farmer A.
-  - Has a surplus of silage, navigates to the Silage tab first and enters silage amount.
-  - Then navigates to Stock tab to see how many adittional cattle can be purchased.
-  - The graph at the bottom of the screen updates, allowing the farmer experiment with different cattle numbers.
 
-### Farmer B. 
-  - Has a silage deficit, navigates to the Stock tab first and enters current cattle numbers.
-  - Then goes to the Silage tab and enters current silage available in the pit and bales.
-  - Finaly the farmer navigates to the Outlook tab and produces a PDF report as a record of how much extra silage is required.
+- Has a surplus of silage, navigates to the Silage tab first and enters silage amount.
+- Then navigates to Stock tab to see how many additional cattle can be purchased.
+- The graph at the bottom of the screen updates, allowing the farmer experiment with different cattle numbers.
 
+### Farmer B.
 
-## Testing
+- Has a silage deficit, navigates to the Stock tab first and enters current cattle numbers.
+- Then goes to the Silage tab and enters current silage available in the pit and bales.
+- Finally the farmer navigates to the Outlook tab and produces a PDF report as a record of how much extra silage is required.
+
+# Testing
 
 ### Validator Testing
 
@@ -59,11 +79,40 @@ The link to the live site can be found here - [Silage Calculator](https://farmer
 ![Lighthouse](Docs/Readme_img/lighthouse.png)
 
 ### Responsive Site Testing
-- Site was tested with various screen sizes using [Responsinator.com](http://www.responsinator.com/?url=https%3A%2F%2Ffarmer-eds-shed.github.io%2FSilage-Calculator%2F)
-- Physical testing also carried out on an OPPO A54 with view port 360px x 664px
-- And a PC with viewport of 1440px x 749px
 
-### Manual Testung
+- Site was tested with various screen sizes using [Responsinator.com](http://www.responsinator.com/?url=https%3A%2F%2Ffarmer-eds-shed.github.io%2FSilage-Calculator%2F).
+- Physical testing also carried out on an OPPO A54 with view port 360px x 664px.
+- And a PC with viewport of 1440px x 749px.
+- Chrome Dev tools.
+
+### Manual Testing
+
+Input Testing
+
+- Each number input box was tested for:
+  - Only positive whole numbers can be entered.
+  - The calculate function is called on number change, when the box loses focus or the arrow buttons are used.
+
+Button Testing
+
+- Each button was tested for:
+  - Correct effect on hover.
+  - Correct functions called when buttons pressed.
+
+Functionality Testing
+
+- Each function was tested for:
+  - Correct output using console.log() temperarily to check outputs in console.
+  - Expected results in the UI
+  - Expected output to PDF file
+
+Browser Testing
+
+- The site was tested using the following browsers
+  - Chrome (Windows).
+  - Edge (Windows).
+  - Firefox (Windows).
+  - Chrome (Android).
 
 ### Fixed Bugs
 
@@ -100,6 +149,6 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 - [jsPDF](https://github.com/parallax/jsPDF)
 - [jsPDF-Autotable](https://github.com/simonbengtsson/jsPDF-AutoTable)
 
-### Other Acknowlegements
+### Other Acknowledgements
 
 - **Mentor** Antonio Rodriguez
