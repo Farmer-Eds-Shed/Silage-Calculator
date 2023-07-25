@@ -27,6 +27,19 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 
 ### Features Left to Implement
 
+## User Stories
+
+### Farmer A.
+  - Has a surplus of silage, navigates to the Silage tab first and enters silage amount.
+  - Then navigates to Stock tab to see how many adittional cattle can be purchased.
+  - The graph at the bottom of the screen updates, allowing the farmer experiment with different cattle numbers.
+
+### Farmer B. 
+  - Has a silage deficit, navigates to the Stock tab first and enters current cattle numbers.
+  - Then goes to the Silage tab and enters current silage available in the pit and bales.
+  - Finaly the farmer navigates to the Outlook tab and produces a PDF report as a record of how much extra silage is required.
+
+
 ## Testing
 
 ### Validator Testing
