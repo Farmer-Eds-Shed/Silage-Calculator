@@ -54,7 +54,10 @@ The link to the live site can be found here - [Silage Calculator](https://farmer
 
 ![JSHint Image](Docs/Readme_img/JSHint.png)
 
-    http://www.responsinator.com/?url=https%3A%2F%2Ffarmer-eds-shed.github.io%2FSilage-Calculator%2F
+### Responsive Site Testing
+- Site was tested with various screen sizes using [Responsinator.com](http://www.responsinator.com/?url=https%3A%2F%2Ffarmer-eds-shed.github.io%2FSilage-Calculator%2F)
+- Physical testing also carried out on an OPPO A54 with view port 360px x 664px
+- And a PC with viewport of 1440px x 749px
 
 ### Manual Testung
 
