@@ -141,6 +141,7 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 ### General Code
 
 - [W3Schools](https://www.w3schools.com/howto/howto_js_tabs.asp) - Tabs.
+- [W3Schools](https://www.w3schools.com/howto/howto_css_modals.asp) - Help Modal.
 - [Stack Overflow](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in#:~:text=HTML%20input%20number%20type%20allows,thank%20you%20for%20the%20question.) - Input validation for positive Integers.
 
 ### Libraries used
