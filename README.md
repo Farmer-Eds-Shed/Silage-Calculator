@@ -54,6 +54,10 @@ The link to the live site can be found here - [Silage Calculator](https://farmer
 
 ![JSHint Image](Docs/Readme_img/JSHint.png)
 
+### Lighthouse
+
+![Lighthouse](Docs/Readme_img/lighthouse.png)
+
 ### Responsive Site Testing
 - Site was tested with various screen sizes using [Responsinator.com](http://www.responsinator.com/?url=https%3A%2F%2Ffarmer-eds-shed.github.io%2FSilage-Calculator%2F)
 - Physical testing also carried out on an OPPO A54 with view port 360px x 664px
@@ -66,7 +70,7 @@ The link to the live site can be found here - [Silage Calculator](https://farmer
 - Graph displaying negative numbers on scale when stock and silage values are zero.
   - This was a limitation of the google charts library, the solution was to hide the chart until a value greater than zero was to be displayed.
 - PDF not displaying input box values.
-  - This was a limitation of the jsPDF library when auto generating tables from HTML, the solution was to build an array from the table values before generating the PDF. see [Issue 804](https://github.com/simonbengtsson/jsPDF-AutoTable/issues/804)
+  - This was a limitation of the jsPDF-Autotable library when auto generating tables from HTML, the solution was to build an array from the table values before generating the PDF. see [Issue 804](https://github.com/simonbengtsson/jsPDF-AutoTable/issues/804)
 - Input box focus issue, calculation method not being called when input updated using arrow buttons on number inputs.
   - Solution was to use 'change' instead of 'focus out on event listener.
 - Input validation issue, negative numbers and exponents.
@@ -87,12 +91,15 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 
 ## General Code
 
-w3 schools
-stack overflow
+- [W3Schools](https://www.w3schools.com/howto/howto_js_tabs.asp) - Tabs.
+- [Stack Overflow](https://stackoverflow.com/questions/31706611/why-does-the-html-input-with-type-number-allow-the-letter-e-to-be-entered-in#:~:text=HTML%20input%20number%20type%20allows,thank%20you%20for%20the%20question.) - Input validation for positive Integers.
 
 ### Libraries used
 
-- Google Charts
-- jsPDF
+- [Google Charts](https://developers.google.com/chart#:~:text=Google%20chart%20tools%20are%20powerful,interactive%20charts%20and%20data%20tools.)
+- [jsPDF](https://github.com/parallax/jsPDF)
+- [jsPDF-Autotable](https://github.com/simonbengtsson/jsPDF-AutoTable)
 
 ### Other Acknowlegements
+
+- **Mentor** Antonio Rodriguez
