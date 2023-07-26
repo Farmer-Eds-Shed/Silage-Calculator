@@ -13,6 +13,7 @@
 
 <body>
     <h1 class="heading">Silage Calculator</h1>
+
     <!-- Tabs -->
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'stock')">Stock</button>
@@ -20,10 +21,14 @@
         <button class="tablinks" onclick="openTab(event, 'outlook')">Outlook</button>
     </div>
     <!-- Tab Content -->
+
     <!-- Tab 1 Stock -->
     <section id="stock" class="tabcontent">
+        <!-- Help Button -->
         <button class="help" title="Click for Help"><i class="fa fa-question-circle"></i></button>
         <h2>Stock to be Housed</h2>
+
+        <!-- Stock Table -->
         <table id="stock-table">
             <thead>
                 <tr>
@@ -91,13 +96,20 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Stock Table End -->
+
+        <!-- Reset Button -->
         <button class="reset">Reset</button>
     </section>
     <!-- Tab 1 Stock End -->
+
     <!-- Tab 2 Silage -->
     <section id="silage" class="tabcontent">
+        <!-- Help Button -->
         <button class="help" title="Click for Help"><i class="fa fa-question-circle"></i></button>
         <h2>Silage Available</h2>
+
+        <!-- Silage Table -->
         <table id="silage-table">
             <thead>
                 <tr>
@@ -129,8 +141,14 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Silage Table End -->
+
+        <!-- Reset Button -->
         <button class="reset">Reset</button>
+        <!-- Area Calculator Button -->
         <button id="area-calc">Area Calculator</button>
+
+        <!-- Area Table -->
         <table id="area-table" style="display:none;">
             <thead>
                 <tr>
@@ -149,12 +167,17 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Area Table End -->
     </section>
     <!-- Tab 2 Silage End -->
+
     <!-- Tab 3 Outlook -->
     <section id="outlook" class="tabcontent">
+        <!-- Help Button -->
         <button class="help" title="Click for Help"><i class="fa fa-question-circle"></i></button>
         <h2>Winter Outlook</h2>
+
+        <!-- Results Table -->
         <table id="results-table">
             <thead>
                 <tr>
@@ -181,7 +204,11 @@
                 </tr>
             </tbody>
         </table>
+        <!-- Results Table End -->
+
+        <!-- Help Button -->
         <button class="reset">Reset</button>
+        <!-- PDF Button -->
         <button id="js-pdf">PDF</button>
     </section>
     <!-- Tab 3 Outlook End -->
