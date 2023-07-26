@@ -158,11 +158,12 @@ The live link can be found here - https://farmer-eds-shed.github.io/Silage-Calcu
 
 ### Libraries used
 
-- [Google Charts](https://developers.google.com/chart#:~:text=Google%20chart%20tools%20are%20powerful,interactive%20charts%20and%20data%20tools.)
-- [jsPDF](https://github.com/parallax/jsPDF)
-- [jsPDF-Autotable](https://github.com/simonbengtsson/jsPDF-AutoTable)
+- [Google Charts](https://developers.google.com/chart#:~:text=Google%20chart%20tools%20are%20powerful,interactive%20charts%20and%20data%20tools.) For bar graph.
+- [jsPDF](https://github.com/parallax/jsPDF) To generate the PDF.
+- [jsPDF-Autotable](https://github.com/simonbengtsson/jsPDF-AutoTable) To generate tables in the PDF.
+- [Font Awesome](https://fontawesome.com/) For Help icon.
 
 ### Other Acknowledgements
 
-- [Favicon](https://favicon.io/)
+- Favicon generated using [Favicon.io](https://favicon.io/)
 - **Mentor** Antonio Rodriguez
