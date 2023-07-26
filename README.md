@@ -50,6 +50,7 @@ The site is a single page with 3 tabs.
 - **Help Modal**
 
   - Some basic information on how to use the site can be accessed by clicking on the **?** icon.
+  - Modal closes by clicking on x or outside modal area.
 
   ![modal](Docs/Readme_img/modal.png)
 
@@ -136,6 +137,8 @@ Browser Testing
   - Solution was to use 'change' instead of 'focus out on event listener.
 - Input validation issue, negative numbers and exponents.
   - Solution was to use 'keypress' on an event listener with 'RegExp("^[0-9]+$")'
+- Deprecated borrowed from W3Schools Tab example.
+  - Code updated to include an event listener, JS removed from HTML button elements.
 
 ## Deployment
 
