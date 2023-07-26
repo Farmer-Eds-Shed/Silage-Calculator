@@ -3,6 +3,12 @@
 // Get the button and input elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
 
+    //Tabs event listener
+    const cTabButtons = document.querySelectorAll('.tablinks');
+    cTabButtons.forEach(tabButton => tabButton.addEventListener("click", function (e) {
+        openTab(e, this.textContent.toLowerCase());
+    }));
+
     //area-calc Button event listener
     let calcButton = document.getElementById('area-calc');
     calcButton.addEventListener('click', showArea);
@@ -38,12 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
             inputs.forEach(input => {
                 input.value = input.defaultValue;
                 calculate();
-                openTab(event, 'stock');
+                openTab("reset");
                 document.getElementById("result-row").setAttribute("class", "");
             });
         });
-
-
     });
 
     //listen for help buttons
@@ -260,10 +264,10 @@ function calculate() {
     //draw graph if !==0 else clear 
     if (silageTonnes !== 0 || stockTonnes !== 0) {
         google.charts.setOnLoadCallback(drawChart);
-        document.getElementById("myChart").style.display = "block";
+        document.getElementById("my-chart").style.display = "block";
     }
     else {
-        document.getElementById("myChart").style.display = "none";
+        document.getElementById("my-chart").style.display = "none";
     }
 }
 
@@ -272,18 +276,33 @@ function calculate() {
  * Function to set active tab.
  *
  */
-function openTab(evt, tabName) {
+function openTab(e, tabName) {
+    // Declare all variables
     var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
+
+    // Get all elements with class="tablinks" and remove the class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    if (e != "reset") {
+        document.getElementById(tabName).style.display = "block";
+        e.currentTarget.className += " active";
+    }
+    else {
+        // reset to default tab
+        document.getElementsByClassName("tabcontent")[0].style.display = "block";
+        document.getElementsByClassName("tablinks")[0].className += " active";
+    }
+
 }
 
 
