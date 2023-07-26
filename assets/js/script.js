@@ -112,7 +112,7 @@ function area() {
  * Returns tonnes required per month.
  *
  * @param {string} cattleType The cattle type.
- * @return {array} Tonnes and Bales required per month.
+ * @return {array} Tonnes, Bales, months, cattle number and intake  per month.
  */
 function stock(cattleType) {
     let cattle = document.getElementById(cattleType).value;
@@ -122,6 +122,7 @@ function stock(cattleType) {
     let bales = document.getElementsByClassName(cattleType + "-silage")[2];
     let output = [];
 
+    //calculate silage required
     output.tonnes = parseInt(cattle * months * intake);
     output.bales = parseInt(tonnes.innerHTML / 0.8);
     output.cattle = cattle;
@@ -137,7 +138,7 @@ function stock(cattleType) {
 /**
  * Total stock function.
  *
- * @return {number} Total tonnes required per month.
+ * @return {array} Total tonnes and bales required per month.
  */
 function stockTotal() {
     let dairyTonnes = stock("dairy").tonnes;
@@ -152,12 +153,14 @@ function stockTotal() {
     let storesBales = stock("stores").bales;
     let output = [];
 
+    //calculate total silage requirement
     let totalTonnes = dairyTonnes + sucklerTonnes + heifersTonnes + weanlingsTonnes + storesTonnes;
     let totalBales = dairyBales + sucklerBales + heifersBales + weanlingsBales + storesBales;
 
     output.tonnes = totalTonnes;
     output.bales = totalBales;
 
+    //update stock table
     document.getElementsByClassName("stock-total")[0].innerHTML = totalTonnes;
     document.getElementsByClassName("stock-total")[1].innerHTML = totalBales;
     document.getElementsByClassName("stock-total")[2].innerHTML = totalTonnes;
@@ -171,7 +174,7 @@ function stockTotal() {
  * Returns silage stock by type.
  *
  * @param {string} silageType The silage type.
- * @return {object} tonnes silage in stock.
+ * @return {array} m3, tonnes and bales silage in stock.
  */
 function silageStock(silageType) {
     let silageQuantity = document.getElementById(silageType + "-stock").value;
@@ -179,10 +182,12 @@ function silageStock(silageType) {
     let bales = document.getElementsByClassName(silageType)[1];
     let output = [];
 
+    //calculate pit m3 in equivelent tonnes and bales
     if (silageType == "pit") {
         output.bales = parseInt(silageQuantity * 0.77 / 0.8);
         output.tonnes = parseInt(silageQuantity * 0.77);
     }
+    //calculate silage bales in equivelenat tonnes and bales
     else if (silageType == "bales") {
         output.bales = parseInt(silageQuantity);
         output.tonnes = parseInt(silageQuantity * 0.8);
@@ -198,7 +203,7 @@ function silageStock(silageType) {
 /**
  * Total silage function.
  *
- * @return {number} Total tonnes of silage in stock.
+ * @return {array} Total tonnes of silage in stock bales and tonnes.
  */
 function silageTotal() {
     let pitBales = silageStock("pit").bales;
@@ -206,13 +211,16 @@ function silageTotal() {
     let pitTonnes = silageStock("pit").tonnes;
     let baleTonnes = silageStock("bales").tonnes;
 
+    //calculate total silage in stock
     let totalTonnes = pitTonnes + baleTonnes;
     let totalBales = pitBales + bales;
     let output = [];
 
+    //function output
     output.tonnes = totalTonnes;
     output.bales = totalBales;
 
+    //update silage table
     document.getElementsByClassName("silage-total")[0].innerHTML = totalTonnes;
     document.getElementsByClassName("silage-total")[1].innerHTML = totalBales;
     document.getElementsByClassName("silage-total")[2].innerHTML = totalTonnes;
@@ -230,16 +238,20 @@ function calculate() {
     let stockBales = stockTotal().bales;
     let silageBales = silageTotal().bales;
 
+    //calculate silage surplus/deficit
     let resultBales = parseInt(silageBales - stockBales);
     let resultTonnes = parseInt(silageTonnes - stockTonnes);
 
+    //update outlook table
     document.getElementsByClassName("result")[0].innerHTML = resultTonnes;
     document.getElementsByClassName("result")[1].innerHTML = resultBales;
 
+    //Style outlook table if deficit
     if (Math.sign(resultTonnes) == -1) {
         document.getElementById("surplus").innerHTML = "Deficit";
         document.getElementById("result-row").setAttribute("class", "deficit");
     }
+    //Style outlook table if surplus
     else {
         document.getElementById("surplus").innerHTML = "Surplus";
         document.getElementById("result-row").setAttribute("class", "surplus");
@@ -304,17 +316,19 @@ function drawChart() {
 
     };
 
-    const chart = new google.visualization.BarChart(document.getElementById('myChart'));
+    const chart = new google.visualization.BarChart(document.getElementById('my-chart'));
     chart.draw(data, options);
 }
 
 
 /**
  * Generates a PDF from Table.
+ * Using jsPDF and jsPDF-Autotable libraries
  */
 function PDF() {
     let doc = new jsPDF();
 
+    //Stock table to Array
     let stockHead = [['', 'Stock', 'Months', 't/months', 'Tonnes', 'Bales']];
     let stockBody = [
         ['Dairy Cows', stock('dairy').cattle, stock('dairy').months, 1.6, stock('dairy').tonnes, stock('dairy').bales],
@@ -325,6 +339,7 @@ function PDF() {
         ['Total', '', '', '', stockTotal().tonnes, stockTotal().bales],
     ];
 
+    //Silage table to Array
     let silageHead = [['', 'Amount', 'Tonnes', 'Bales']];
     let silageBody = [
         ['Silage Pit m3', silageStock('pit').amount, silageStock('pit').tonnes, silageStock('pit').bales],
@@ -338,9 +353,10 @@ function PDF() {
     doc.text(10, 100, 'Silage Available');
     doc.autoTable({ head: silageHead, body: silageBody, startY: 105 });
     doc.text(10, 150, 'Winter Outlook');
+    //Auto generate outlook table from HTML
     doc.autoTable({ html: '#results-table', startY: 155 });
-    //doc.save('table.pdf');
+    // open PDF in new window
     window.open(doc.output('bloburl'), '_blank');
-    //doc.output('dataurlnewwindow');
+
 }
 
